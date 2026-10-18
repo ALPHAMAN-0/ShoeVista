@@ -4,11 +4,25 @@ ShoeVista 👟 ShoeVista is a full-stack e-commerce web application for browsing
 ## Architecture / How it Works
 
 ```mermaid
-flowchart LR
-    A[User] --> B[Shoevista]
-    B --> C{Logic}
-    C --> D[(Data)]
-    C --> E[Output]
-    D --> C
+flowchart TD
+  ClientContext["Client-Context"]
+  ClientApp["Client-App"]
+  ClientPages["Client-Pages"]
+  ClientComponents["Client-Components"]
+  ServerEntry["Server-Entry"]
+  ServerRoutes["Server-Routes"]
+  ServerControllers["Server-Controllers"]
+  ServerModels["Server-Models"]
+  MongoDB["MongoDB"]
+
+  ClientContext --> ClientApp
+  ClientApp --> ClientPages
+  ClientApp --> ClientComponents
+  ClientApp --> ServerEntry
+  ServerEntry --> ServerRoutes
+  ServerRoutes --> ServerControllers
+  ServerControllers --> ServerModels
+  ServerEntry --> MongoDB
+  ServerModels --> MongoDB
 ```
 
